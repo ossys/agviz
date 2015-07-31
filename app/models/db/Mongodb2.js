@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/agviz');
+mongoose.connect(process.env['MONGOLAB_URI'] || 'mongodb://localhost:27017/agviz');
 
 
 mongoose.connection.on('connected', function() {
