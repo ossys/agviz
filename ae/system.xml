@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SystemModel xmlns="http://ae.ossys.com"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://ae.ossys.com http://ae.ossys.com/systemmodel.xsd"
+             key="xxx" api="1" >
+
+<DataSource name="MongoDB2"
+			type="MONGODB2"
+			host="localhost"
+			schema="agviz"
+			port="27017"
+			username="agviz"
+			password="PUR5tr3ngth" />
+
+<!-- Java -->
+<Project	name="Ag Viz"
+    		buildtool="GULP">
+	
+	<Domain name="Ag Viz"
+			src="ae/model.xml"
+			datasource="MongoDB2"
+			language="NODEJS"
+			framework="EXPRESS"
+			orm="MONGOOSE"
+			tester="MOCHA" />
+
+</Project>
+
+
+</SystemModel>
