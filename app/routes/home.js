@@ -1,13 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var TestController = require('../controllers/TestController');
+var NASSRestController = require('../controllers/NASSRestController');
 
 //	GET			/
 router.get('/', function (req, res, next) {
-	var tc = new TestController();
-	tc.test();
-	res.render('index', {
-		title: 'USDA Agriculture Visualization'
+	var nass = new NASSRestController();
+	nass.setSource(NASSRestController.SOURCE.CENSUS);
+	nass.setSector(NASSRestController.SECTOR.CROPS);
+	nass.setGroup(NASSRestController.GROUP.FIELD_CROPS);
+	nass.setCommodity(NASSRestController.COMMODITY.TRITICALE);
+	nass.getJson(function(json) {
+		res.render('index', {
+			title: 'USDA Agriculture Visualization',
+			length : json.data.length
+		});
 	});
 });
 
