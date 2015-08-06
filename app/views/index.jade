@@ -1,5 +1,48 @@
-extends layout
+include layout
+include header
 
-block content
-  h1= title
-  p Welcome to #{title}
+.container-fluid.main-content
+	.row
+		.col-md-12
+			.widget-container.weather
+				.widget-content.padded
+					.row.text-center
+						.col-sm-4.col-md-4.col-lg-4.today
+							p Today
+							canvas#rain.skycons-element(data-skycons="RAIN", height="100", width="100")
+							.number 73
+								small &deg;
+							p.location Charleston, SC
+						.col-sm-2.hidden-xs
+							p MON
+							canvas#clear-day.skycons-element(data-skycons="CLEAR_DAY", height="60", width="60")
+							.number 86
+								small &deg;
+						.col-sm-2.hidden-xs
+							p TUE
+							canvas#snow.skycons-element(data-skycons="SNOW", height="60", width="60")
+							.number 94
+								small &deg;
+						.col-sm-2.hidden-xs
+							p WED
+							canvas#wind.skycons-element(data-skycons="WIND", height="60", width="60")
+							.number 86
+								small &deg;
+						.col-sm-2.hidden-xs
+							p THU
+							canvas#partly-cloudy-day.skycons-element(data-skycons="PARTLY_CLOUDY_DAY", height="60", width="60")
+							.number 86
+								small &deg;
+	.row
+		//Area Charts:Morris
+		.col-md-12
+			.widget-container.fluid-height
+				.heading
+					i.fa.fa-bar-chart-0
+				.widget-content.padded.text-center
+					.graph-container
+						.caption
+						#hero-area.graph
+									
+script.
+	
